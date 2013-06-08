@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class="ui-mobile"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Trainit</title> 
+	
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script src="scripts/jquery.mobile.routerlite.js"></script>
+	<script src="scripts/controller.js"></script>
+  <script src="http://malsup.github.com/jquery.form.js"></script>
+	<style> .center { text-align: center; } </style>
+</head> 
+
+<body class="ui-mobile-viewport ui-overlay-c"> 
+
+<!-- Start of splash page: #one -->
+<div data-role="page" id="one" tabindex="0" class="ui-page ui-body-d ui-page-active" >
+
+	<div data-role="header" class="ui-header ui-bar-a" role="banner">
+		<h4 class="ui-title" role="heading" aria-level="1">Trainit</h4>
+	</div><!-- /header -->
+
+	<div data-role="content" class="ui-content" role="main" data-theme="d">
+		<div id="splashDiv" class="content-primary center" >
+			<img src="images/frog.jpg" alt="Optometrist Loccator">
+			<p>Manage your training progress in couchDB</p>
+		</div><!-- content-primary -->	
+		<a href="#two" data-role="button" data-inline="false" data-theme="b">Enter</a>
+	</div><!-- /content -->
+
+	<div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo">
+		<h4 class="ui-title" role="heading" aria-level="1">Trainit - CouchDB training tracker</h4>
+	</div><!-- /footer -->
+
+</div><!-- /splash page #one -->
+
+<!-- Start of first page: #two -->
+<div data-role="page" id="two" data-add-back-btn="true" data-back-btn-theme="c"tabindex="0" class="ui-page ui-body-c" >
+
+	<div data-role="header" class="ui-header ui-bar-a" role="banner">
+		<h4 class="ui-title" role="heading" aria-level="1">Trainingsplan</h4>
+	</div><!-- /header -->
+
+	<div data-role="content" class="ui-content" data-theme="b">
+		<div id="exercisesdiv" class="content-primary">
+			<ul id="exercises" data-role="listview" data-inset="true">
+			</ul><!-- list of state buttons -->
+		</div><!-- content-primary -->
+	</div><!-- /content -->
+	
+	<div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo">
+		<h4 class="ui-title" role="heading" aria-level="1">Demo</h4>
+	</div><!-- /footer -->
+	
+</div><!-- /page two -->
+
+<!-- Start of third page: #three -->
+<div data-role="page" id="three" data-add-back-btn="true" data-back-btn-theme="c" data-theme="b">
+
+	<div data-role="header" class="ui-header ui-bar-a yesnobar" role="banner">
+		<a href="#four" id="edtcncl" onclick="" data-icon="delete">Cancel</a>
+		<h1>Edit Exercise</h1>
+		<a href="#four" id="edtsave" onclick="" data-icon="check" data-theme="b">Save</a>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="b">
+		<div id="edetailDiv" class="content-primary">
+			<div id="edetails">
+			</div>
+		</div><!-- content-primary -->
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>-</h4>
+	</div><!-- /footer -->
+</div><!-- /page three -->
+
+<!-- Start of third page: #four -->
+<div data-role="page" id="four" data-add-back-btn="false" data-back-btn-theme="c" data-theme="b">
+
+	<div class="editbar" data-role="header">
+		<a href="#two" data-icon="back" data-theme="c">Back</a>
+		<h4 id="headerPg3">Exercise Detail</h4>
+		<a href="#three" id="editbtn" data-icon="gear" data-theme="c">Edit</a>
+	</div>
+
+
+	<div data-role="content" data-theme="b">
+		<div id="detailDiv" class="content-primary">
+			<div id="details">
+			</div>
+		</div><!-- content-primary -->
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Demo</h4>
+	</div><!-- /footer -->
+</div><!-- /page four -->
+
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span><h1>loading</h1></div>
+</body>
+</html>

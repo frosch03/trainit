@@ -1,0 +1,6 @@
+*~
+.kansorc
+*.dump
+*.stdout
+*.stderr
+\#*\#

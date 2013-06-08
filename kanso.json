@@ -1,0 +1,34 @@
+{
+    "name": "trainit",
+    "version": "0.0.1",
+    "description": "Trainit Mobile App",
+    "attachments": ["index.html", "scripts/controller.js", "scripts/jquery.mobile.routerlite.js", "images/frog.jpg"],
+    "modules": ["lib"],
+    "load": "lib/app",
+    "handlebars": {
+        "all_partials": true,
+        "templates": "templates"
+    },
+
+    "dust": {
+        "templates": "templates"
+    },
+    "duality": {
+        "base_template": "base.html"
+    },
+
+    "dependencies": {
+        "attachments": null,
+        "modules": null,
+        "properties": null,
+        "db": null,
+        "handlebars": null,
+				"couchtypes": null,
+
+        "settings": null,
+        "duality": null,
+        "dust": null,
+        "duality-dust": null
+
+    }
+}
