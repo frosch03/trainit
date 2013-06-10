@@ -36,26 +36,27 @@ $(document).ready( function () {
 
 // Populate relative page one rows
 APP.rp1 = function () {
-	console.log("Populate states listing");
-	var url = "../trainit/_list/list_exercises/count_by_pos/";
-	// Populate li elements of #states ul through our supplied list CouchDb function
-	$.get(url, function(data) {
-		var selector = "#exercises";
-		$(selector).empty();
-		$(selector).append(data);
-		try {
-			$("div#exercisesdiv ul").listview("refresh");
-		} catch (ex) {
-			console.log(ex.message + ". It's OK.  Exercises pre-leoaded. View them on next page.");
-		}
-	});
+		console.log("Populate states listing");
+
+		var url = "_list/plan/exList/";
+
+		$.get(url, function(data) {
+				var selector = "#exercises";
+				$(selector).empty();
+				$(selector).append(data);
+				try {
+						$("div#exercisesdiv ul").listview("refresh");
+				} catch (ex) {
+						console.log(ex.message + ". It's OK.  Exercises pre-leoaded. View them on next page.");
+				}
+		});
 };
 	
 // Populate relative page two rows
 APP.rp2 = function (id) {
 	console.log("Populate edetail form");
 	// curl -X GET "http://127.0.0.1:5984/opto3/_design/opto/_show/detail/3770717789a226c91f8ce4808e2eefd7"
-	var url = "../trainit/_show/exercise/";
+	var url = "_show/exercise/";
 	url += id;
 
 	var cnclBtn = "#edtcncl";
@@ -73,15 +74,28 @@ APP.rp2 = function (id) {
 	
 // Populate relatve page three detail page
 APP.rp3 = function (id) {
-	console.log("Populate detail form");
-	// curl -X GET "http://127.0.0.1:5984/opto3/_design/opto/_show/detail/3770717789a226c91f8ce4808e2eefd7"
-	var url    = "../trainit/_show/detail/";
-	var btn    = "#editbtn";
-  $(btn).attr('onclick', 'APP.id=\''+id+'\';');
-	url    += id;
-	$.get(url, function(data) {
-		var selector = "#details";
-		$(selector).empty();
-		$(selector).append(data);
-	});	
+		console.log("Populate detail form");
+
+		var url = "_show/detail/";
+		url    += id;
+
+		var btn = "#editbtn";
+		$(btn).attr('onclick', 'APP.id=\''+id+'\';');
+
+		$.get(url, function(data) {
+				var selector = "#details";
+				$(selector).empty();
+				$(selector).append(data);
+		});	
+
+		var btnEnt = "#entbtn";
+		var urlEnt = "_show/enter/";
+		urlEnt    += id;
+
+		$.get(urlEnt, function(data) {
+				var selector = "#enter";
+				$(selector).empty();
+				$(selector).append(data);
+				$(btnEnt).attr('onclick', '"APP.id=\''+id+'\'; $(document).ready(function() { $("#entForm").ajaxSubmit({type: "PUT" }); return false; });"');
+		});	
 };
